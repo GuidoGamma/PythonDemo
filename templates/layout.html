@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link >
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('index') }}" class="navbar-item">Home</a>
+
+        {% if logged_in == True %}
+            <a href="{{ url_for('devicetypes') }}" class="navbar-item">Device Types</a>
+            <a href="{{ url_for('customtags') }}" class="navbar-item">Custom Tags</a>
+            <a href="{{ url_for('logout')}}" class="navbar-item" style="float: right">Logout</a>
+        {% endif %}
+    </div>
+    <div class="body-content">
+        {% block content %}
+        {% endblock %}
+        <hr />
+        <footer>
+            <p>
+                &copy; <span id="year"></span>
+            </p>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>De volgende Custom Tags zijn aangemaakt voor Horizon</div>
+    <table id="customTags">
+    <tr>
+        <td>Device type</td>
+        <td>Tag Name</td>
+        <td>Vrij invulbaar</td>
+        <td>Vaste waardes</td>
+        <td>Overschrijfbare karakters</td>
+        <td>Standaard waarde</td>
+        <td>Korte omschrijving</td>
+        <td>Actief</td>
+    </tr>
+    {% for customtag in customtags %}
+    <tr>
+        <td>{{ customtag.CustomTagDeviceType.Name }}</td>
+        <td>{{ customtag.Name }}</td>
+        {% if customtag.IsFreeText == True %}
+        <td><input type="checkbox" disabled="disabled" checked></td>
+        {% else %}
+         <td><input type="checkbox" disabled="disabled"></td>
+        {% endif %}
+        {% if customtag.IsEnum == True %}
+        <td><input type="checkbox" disabled="disabled" checked></td>
+        {% else %}
+         <td><input type="checkbox" disabled="disabled"></td>
+        {% endif %}
+        {% if customtag.HasReplacementValue == True %}
+        <td><input type="checkbox" disabled="disabled" checked></td>
+        {% else %}
+         <td><input type="checkbox" disabled="disabled"></td>
+        {% endif %}
+        <td>{{ customtag.DefaultValue }}</td>
+        <td>{{ customtag.ShortDescription }}</td>
+        {% if customtag.Active == True %}
+        <td><input type="checkbox" disabled="disabled" checked></td>
+        {% else %}
+         <td><input type="checkbox" disabled="disabled"></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+    </table>
+     {{ pagination.links }}
+{% endblock %}

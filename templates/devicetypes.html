@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>De volgende Device Types zijn aangemaakt voor Horizon</div>
+    {{ pagination.links }}
+    <table id="customTags">
+    <tr>
+        <td>Device type</td>
+    </tr>
+    {% for devicetype in devicetypes %}
+    <tr>
+        <td>
+            <a href="{{ url_for('devicetype', devicetype_uid=devicetype.Uid)}}"> {{ devicetype.Name }}</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+     {{ pagination.links }}
+    <div>
+        Verdeling templates
+    </div>
+    <div>
+        {{ piechart_div|safe }}
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-2.3.2.min.js"></script>
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-2.3.2.min.js"></script>
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-2.3.2.min.js"></script>
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-tables-2.3.2.min.js"></script>
+        {{ piechart_script|safe }}
+    </div>
+{% endblock %}

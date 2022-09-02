@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ deviceType.Name }}</h1>
+
+ <h2>Meest gebruikte custom tags</h2>
+
+    {{ the_div1|safe }}
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-2.3.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-2.3.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-2.3.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-tables-2.3.2.min.js"></script>
+    {{ the_script1|safe }}
+{% endblock %}
