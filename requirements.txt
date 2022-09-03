@@ -11,7 +11,7 @@ pyparsing==2.3.0
 python-dateutil==2.7.5
 six==1.11.0
 SQLAlchemy==1.3.16
-Werkzeug==0.14.1
+Werkzeug==2.2.2
 pyodbc
 bokeh==2.3.2
 pandas
